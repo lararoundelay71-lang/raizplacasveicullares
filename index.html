@@ -44,22 +44,41 @@
       margin-right: 8px;
     }
 
-    /* Hero */
+    /* HERO COM IMAGEM DE FUNDO */
     .hero {
-      background: linear-gradient(135deg, #E8F5E9 0%, #ffffff 80%);
-      padding: 80px 0;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.45); /* overlay escuro */
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
       text-align: center;
+      padding: 60px 15px;
     }
     .hero h1 {
       font-size: 2.8rem;
       font-weight: 800;
-      color: var(--verde-folha);
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     .hero p {
       font-size: 1.25rem;
-      color: #555;
+      color: rgba(255, 255, 255, 0.95);
       max-width: 650px;
       margin: 0 auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
     .hero .badge-custom {
       background-color: var(--rosa-accent);
@@ -164,11 +183,6 @@
       transform: scale(1.1);
       color: white;
     }
-
-    /* Link LGPD / termos */
-    .lgpd-links a {
-      margin-right: 20px;
-    }
   </style>
 </head>
 <body>
@@ -193,7 +207,7 @@
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- Hero com imagem de fundo -->
 <section class="hero">
   <div class="container">
     <h1>Encante com a beleza das flores</h1>
